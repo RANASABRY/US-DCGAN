@@ -138,8 +138,8 @@ for i in range(args.trial):
     tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=0, write_graph=True,
                                                           write_images=False)
     checkpoint_callback = keras.callbacks.ModelCheckpoint(os.path.join(log_dir, saved_model_filepath),
-                                                            monitor='val_loss', verbose=0, save_best_only=False,
-                                                            save_weights_only=False, mode='auto', period=1)
+                                                      monitor='val_loss', verbose=0, save_best_only=False,
+                                                      save_weights_only=False, mode='auto', save_freq='epoch')
 
 
 
