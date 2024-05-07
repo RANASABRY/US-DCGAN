@@ -195,21 +195,18 @@ for i in range(args.trial):
 
     model.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate=params['lr']), loss='binary_crossentropy', metrics=['accuracy'])
     checkpoint_callback.set_model(model)
-
     callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
     
     print(type(model))
-     # Ensure it prints something like <class 'tensorflow.python.keras.engine.sequential.Sequential'>
-
-
+    print(dir(model))  # This will list all properties and methods of the model object
     model.fit(train_datagen,
-                        steps_per_epoch=steps_per_epoch,
-                        epochs=args.epoch,
-                        use_multiprocessing=True,  # Optional, based on your setup
-                        max_queue_size=10,  # Optional, adjust based on your needs,
-                        validation_data=validation_datagen,
-                        validation_steps=validation_steps,
-                        callbacks=[tensorboard_callback, checkpoint_callback,callback])
+          steps_per_epoch=steps_per_epoch,
+          epochs=args.epoch,
+          validation_data=validation_datagen,
+          validation_steps=validation_steps,
+          callbacks=[tensorboard_callback, checkpoint_callback, callback])
+
+
 
     [val_loss, val_acc] = model.evaluate_generator(validation_datagen)
     [train_loss, train_acc] = model.evaluate_generator(train_datagen)
