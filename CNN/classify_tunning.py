@@ -197,6 +197,9 @@ for i in range(args.trial):
     checkpoint_callback.set_model(model)
 
     callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
+    
+    print(type(model))
+     # Ensure it prints something like <class 'tensorflow.python.keras.engine.sequential.Sequential'>
 
 
     model.fit(train_datagen,
