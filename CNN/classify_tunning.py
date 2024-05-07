@@ -203,7 +203,7 @@ for i in range(args.trial):
                         steps_per_epoch=steps_per_epoch,
                         epochs=args.epoch,
                         use_multiprocessing=True,  # Optional, based on your setup
-                        max_queue_size=10  # Optional, adjust based on your needs,
+                        max_queue_size=10,  # Optional, adjust based on your needs,
                         validation_data=validation_datagen,
                         validation_steps=validation_steps,
                         callbacks=[tensorboard_callback, checkpoint_callback,callback])
