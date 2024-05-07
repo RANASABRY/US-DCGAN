@@ -193,8 +193,8 @@ for i in range(args.trial):
     steps_per_epoch = train_datagen.n_images // batch_size
     validation_steps = validation_datagen.n_images // batch_size
 
-    model.compile(optimizer=tf.keras.optimizers.RMSprop(lr=params['lr']), loss='binary_crossentropy',
-                    metrics=['accuracy'])
+  model.compile(optimizer=tf.keras.optimizers.RMSprop(learning_rate=params['lr']), loss='binary_crossentropy', 
+                metrics=['accuracy'])
     checkpoint_callback.set_model(model)
 
     callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
