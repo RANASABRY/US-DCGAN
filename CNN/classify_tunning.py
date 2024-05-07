@@ -199,7 +199,7 @@ for i in range(args.trial):
     callback = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=3)
 
 
-    model.fit_generator(train_datagen,
+    model.fit(train_datagen,
                         steps_per_epoch=steps_per_epoch,
                         epochs=args.epoch,
                         workers=4,
