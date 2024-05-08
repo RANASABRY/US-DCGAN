@@ -152,7 +152,7 @@ class DataGenerator(keras.utils.Sequence):
                         delta = 10
                         pct_pix = 5
                         sz = image.shape
-                        pix = np.random.randint(0, np.product(sz[:2]), [np.int(np.product(sz[:2]) * pct_pix * 0.01), ])
+                        pix = np.random.randint(0, np.product(sz[:2]), [int(np.product(sz[:2]) * pct_pix * 0.01), ])
                         image = image.flatten()
                         image[pix] = image[pix] + delta
                         image = image.reshape(sz)
