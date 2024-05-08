@@ -128,7 +128,7 @@ for i in range(args.trial):
         os.makedirs(log_dir)
 
     # Setup where the logs will be saved.
-    saved_model_filepath = "saved-model-{epoch:02d}-{val_acc:.4f}.keras"
+    saved_model_filepath = "saved-model-{epoch:02d}-{val_accuracy:.4f}.keras"
     params = {'channel_multiplier':channel_multiplier,'lr':learning_rate,'dropout':dropout}
     log_dir = os.path.join(log_dir, parameter_unique_dirname(params))
 
