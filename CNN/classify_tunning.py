@@ -208,8 +208,8 @@ for i in range(args.trial):
 
 
 
-    [val_loss, val_acc] = model.evaluate_generator(validation_datagen)
-    [train_loss, train_acc] = model.evaluate_generator(train_datagen)
+    [val_loss, val_acc] = model.evaluate(validation_datagen)
+    [train_loss, train_acc] = model.evaluate(train_datagen)
 
     print("Setup value for trial: "+str(i), params)
     print("Validation accuracy for trial i :", val_acc)
